@@ -12,23 +12,10 @@
 
 #include "header.h"
 
-void func()
-{
-	int *ptr;
 
-	ptr = allocate(10);
-	ptr = allocate(20);
-	ptr = allocate(30);
-	free_address(ptr);
-	ptr = allocate(40);
-	ptr = allocate(50);
-	ptr = allocate(60);
-	ptr = allocate(70);
-	ptr = allocate(80);
-}
-
-int main(void)
-{
-	func();
-	free_memory();
+int main(void) {
+    arena_reserve(10);
+    arena_alloc(100, 1);
+    size_t used = arena_free();
+    printf("did use %zu\n", used);
 }
