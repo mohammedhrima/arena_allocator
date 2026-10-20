@@ -20,7 +20,7 @@ A tiny arena allocator in C, in a single header. Allocate as much as you want, n
 + Allocate with arena_alloc(10, sizeof(int)) and so on, as often as you like.
 + At the end of the program, call arena_free() once.
 + Build: gcc your_file.c (header.h holds the implementation, there is nothing else to compile).
-+ The example in main.c allocates, frees, and prints how much memory was used.
++ The example in main.c counts the words of a sentence. Every word copy and every list node comes from the arena, and one arena_free() at the end releases them all. Run it with: gcc main.c && ./a.out
 
 ## How it works
 
